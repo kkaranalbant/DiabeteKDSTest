@@ -1,0 +1,43 @@
+{
+  "ensemble": "hybrid_ensemble_v5",
+  "created": "2026-02-14T19:25:16.973689",
+  "strategy": "weighted_average",
+  "formula": "w_a*pred_absolute + w_b*pred_residual",
+  "model_a": {
+    "file": "ensemble_model_a_absolute.json",
+    "target": "Target_CGM"
+  },
+  "model_b": {
+    "file": "ensemble_model_b_residual.json",
+    "target": "Target_Residual",
+    "reconstruction": "Linear_Forecast + pred_residual",
+    "physics_baseline": "CGM + Vel_15min * 2"
+  },
+  "optimal_weight": {
+    "w_a": 0.6,
+    "w_b": 0.4
+  },
+  "features": [
+    "CGM",
+    "IOB",
+    "COB",
+    "Vel_5min",
+    "Vel_15min",
+    "Acc_15min",
+    "Roll_Mean_60",
+    "Roll_Std_60",
+    "Hour_Sin",
+    "Hour_Cos",
+    "Insulin_Sensitivity_Risk"
+  ],
+  "horizon_min": 30,
+  "metrics": {
+    "model_a_rmse": 28.1646,
+    "model_b_rmse": 28.5293,
+    "ensemble_rmse": 28.2297,
+    "ensemble_mae": 19.8892,
+    "mape": 14.3635,
+    "clarke_ab_pct": 92.09,
+    "zone_d_pct": 3.0
+  }
+}

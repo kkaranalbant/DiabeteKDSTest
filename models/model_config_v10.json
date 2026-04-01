@@ -1,0 +1,84 @@
+{
+  "version": "v10",
+  "features": [
+    "CGM",
+    "carbs",
+    "iob",
+    "phys_meal_bolus",
+    "phys_corr_bolus",
+    "phys_net_need",
+    "est_tdd",
+    "est_isf",
+    "est_icr",
+    "cgm_delta_5min",
+    "cgm_delta_15min",
+    "cgm_velocity",
+    "basal",
+    "basal_delta_5min",
+    "time_sin",
+    "time_cos",
+    "is_weekend",
+    "age",
+    "weight",
+    "gender_encoded"
+  ],
+  "feature_count": 20,
+  "physics_features": [
+    "phys_meal_bolus",
+    "phys_corr_bolus",
+    "phys_net_need"
+  ],
+  "monotone_constraints": [
+    1,
+    1,
+    -1,
+    1,
+    1,
+    1,
+    0,
+    -1,
+    -1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "target_bg": 100.0,
+  "synthetic_injection": 2000000,
+  "ghost_protocol": "is_synthetic used for weighting only, then dropped",
+  "best_iteration": 271,
+  "best_score": 0.5379730868691835,
+  "stress_test": [
+    {
+      "name": "A: Meal (120, 50g)",
+      "math": 5.666666666666667,
+      "ai": "8.954863",
+      "status": "\u274c FAIL"
+    },
+    {
+      "name": "B: Correction (250, 0g)",
+      "math": 5.0,
+      "ai": "4.762786",
+      "status": "\u2705 PASS"
+    },
+    {
+      "name": "C: Meal+Correction",
+      "math": 5.666666666666666,
+      "ai": "7.985436",
+      "status": "\u2705 PASS"
+    },
+    {
+      "name": "D: Hypo Risk (80)",
+      "math": 0,
+      "ai": "0.16689998",
+      "status": "\u2705 PASS"
+    }
+  ]
+}

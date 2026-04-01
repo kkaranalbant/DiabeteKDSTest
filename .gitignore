@@ -1,0 +1,71 @@
+# ============================================================
+# DiabetAI .gitignore
+# ============================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment
+.env
+
+# ============================================================
+# BÜYÜK VERİ DOSYALARI (GitHub'a yüklenmez)
+# ============================================================
+data/raw/*.parquet
+data/processed/*.parquet
+data/raw/*.csv
+data/processed/*.csv
+!data/processed/datasetalayze.py
+!data/processed/insulin_map.py
+
+# ============================================================
+# ESKİ MODEL DOSYALARI (Sadece aktif modeller yüklenir)
+# ============================================================
+models/xgboost_final_model.json
+models/xgboost_glucose_model_v2.json
+models/xgboost_final_model_v3_stabilized.json
+models/xgboost_v6_pure_final.json
+models/xgboost_clinical_v7.json
+models/xgboost_clinical_v8.json
+models/xgboost_insulin_classifier.json
+models/model_features_v8.json
+
+# ============================================================
+# NIGHTSCOUT / TELEGRAM (Ekip ile paylaşılmaz)
+# ============================================================
+scripts/nightscout_api.py
+scripts/clinical_daemon.py
+scripts/telegram_bot.py
+
+# ============================================================
+# GÖRSELLer ve PDF'ler (Root dizindeki)
+# ============================================================
+*.jpeg
+*.png
+*.pdf
+!docs/**/*.png
+!docs/**/*.pdf
+
+# Outputs
+outputs/
+
+# OS
+Thumbs.db
+.DS_Store
